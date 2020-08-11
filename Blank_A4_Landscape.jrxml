@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2020-08-05T18:28:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b91a4a2e-ffe3-4076-9469-4401e1ab6a23">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="245"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="750"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mydb"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#DEE673">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset2" uuid="9d494993-27a7-4cb5-af2d-593c1e035570">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="mydb"/>
+		<queryString language="SQL">
+			<![CDATA[select  mydb.transaction.`TxnRefNumber`,  mydb.transaction.`AccountNumber`, mydb.transaction.`DateTime`  , mydb.transaction.`Description`  ,mydb.transaction.`Withdrawals` , mydb.transaction.`Credit`, mydb.transaction.`RunningBalance`  
+from  mydb.transaction ]]>
+		</queryString>
+		<field name="TxnRefNumber" class="java.lang.String"/>
+		<field name="AccountNumber" class="java.lang.Integer"/>
+		<field name="DateTime" class="java.sql.Timestamp"/>
+		<field name="Description" class="java.lang.String"/>
+		<field name="Withdrawals" class="java.lang.Integer"/>
+		<field name="Credit" class="java.lang.Integer"/>
+		<field name="RunningBalance" class="java.lang.Integer"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select mydb.transaction.`TxnRefNumber`, mydb.transaction.`AccountNumber` , mydb.transaction.`DateTime`, mydb.transaction.`Description` ,  mydb.transaction.`Withdrawals`,  mydb.transaction.`Credit`,  mydb.transaction.`RunningBalance` 
+ from  mydb.transaction]]>
+	</queryString>
+	<field name="TxnRefNumber" class="java.lang.String"/>
+	<field name="AccountNumber" class="java.lang.Integer"/>
+	<field name="DateTime" class="java.sql.Timestamp"/>
+	<field name="Description" class="java.lang.String"/>
+	<field name="Withdrawals" class="java.lang.Integer"/>
+	<field name="Credit" class="java.lang.Integer"/>
+	<field name="RunningBalance" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="300" y="10" width="220" height="51" uuid="6738f475-247a-4f04-84e9-813f1be702a7"/>
+				<text><![CDATA[          Transaction Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="282" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="10" width="800" height="200" uuid="56a66d9b-b578-4808-a559-72971288509e">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset2" uuid="62b81e7e-02cf-4dc3-aa5b-a387183af30f">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="9e0eb85e-ba0d-4002-aac9-0a2c18c6d792">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="3456bb8a-3e7c-4a9e-b4fe-870d8831c7e2"/>
+								<text><![CDATA[TxnRefNumber]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d6898570-72fd-42d9-96c4-3dc017c730c4"/>
+								<textFieldExpression><![CDATA[$F{TxnRefNumber}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="a012c5b3-5692-4de5-986a-971ad3f795ce">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="0ae27087-40d2-4183-bac0-bea6aaf6f993"/>
+								<text><![CDATA[AccountNumber]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="62497088-a6f0-48e1-9d1f-39b36bbe568a"/>
+								<textFieldExpression><![CDATA[$F{AccountNumber}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="79cb010b-322d-4548-b3c8-5d835621d4aa">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="b08fb651-2557-45d7-85da-571b01770a06"/>
+								<text><![CDATA[DateTime]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="140" height="30" uuid="c7868735-5d19-47df-b528-30b3f762e140"/>
+								<textFieldExpression><![CDATA[$F{DateTime}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="146" uuid="1e293aeb-1956-4158-8b6e-f4ff549534fc">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="146" height="30" uuid="dc0f1c7a-b0aa-4c1d-bfec-c02a2e4ad5f2"/>
+								<text><![CDATA[Description]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="146" height="30" uuid="c1aa5d39-1be2-48e0-8938-5eaee2498d8c"/>
+								<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="114" uuid="2a3c879f-3c38-4da6-99a9-08b160e1390d">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="114" height="30" uuid="3582a2f3-a68b-47cb-83a1-aa7943ee1381"/>
+								<text><![CDATA[Withdrawals]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="114" height="30" uuid="3a35e98a-128c-4657-a7c5-047d69089647"/>
+								<textFieldExpression><![CDATA[$F{Withdrawals}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3fe62cdf-20ce-4451-b25d-e5399f065d20">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="bc396c7b-0352-4551-beef-c48593c61de5"/>
+								<text><![CDATA[Credit]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="9cc5a250-386f-49ec-b9e1-a86018701e30"/>
+								<textFieldExpression><![CDATA[$F{Credit}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="d32dd240-7bf7-41a6-8268-70aefcc284ae">
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="120" height="30" uuid="7416601c-7b11-4a78-844a-6109ddf24fed"/>
+								<text><![CDATA[RunningBalance]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="120" height="30" uuid="d5482611-0706-4600-8973-b21cfa5ae4b1"/>
+								<textFieldExpression><![CDATA[$F{RunningBalance}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
